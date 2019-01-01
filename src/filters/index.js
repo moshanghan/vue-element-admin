@@ -1,6 +1,6 @@
 // set function parseTime,formatTime to filter
 export { parseTime, formatTime } from '@/utils'
-
+import moment from 'moment'
 function pluralize(time, label) {
   if (time === 1) {
     return time + label
@@ -39,4 +39,11 @@ export function numberFormatter(num, digits) {
 
 export function toThousandFilter(num) {
   return (+num || 0).toString().replace(/^-?\d+/g, m => m.replace(/(?=(?!\b)(\d{3})+$)/g, ','))
+}
+// 日期格式化
+export function normalTime(time) {
+  if (time) {
+    return moment(time).format('YYYY-MM-DD HH:mm:ss')
+  }
+  return ''
 }
